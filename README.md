@@ -1,1 +1,1 @@
-This is a slack bot. With lot of cool commands.
+This is a slack bot. With lots of cool commands.
