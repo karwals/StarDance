@@ -49,6 +49,7 @@ app.command("/help", async ({ ack, respond }) => {
         /really-cool-bot-catfact - Get a random cat fact
         /really-cool-bot-joke - Get a random joke
         /coinflip - Flip a coin
+        /DiceRole - Role a dice
         `
     });
 });
@@ -57,6 +58,37 @@ app.command("/coinflip", async ({ ack, respond }) => {
     const result = Math.random() < 0.5? "Heads":"Tails";
     await respond({
         text: ` coin flip result: ${result}`
+    });
+});
+app.command("/DiceRole", async ({ ack, respond }) => {
+    await ack();
+    const result = Math.ceil(Math.random()*6);
+    await respond({
+        text: `Dice role result: ${result}`
+    });
+});
+app.command("/really-cool-bot-quote", async ({ ack, respond }) => {
+    await ack();
+
+    const quotes = [
+        "Small progress is still progress.",
+        "Do not stop until you are proud.",
+        "Mistakes are proof that you are trying.",
+        "Focus on one step at a time.",
+        "The best way to learn is to keep building."
+    ];
+
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+    await respond({
+        text: randomQuote
+    });
+});
+app.command("/randomnumber", async ({ ack, respond }) => {
+    await ack();
+    const number = Math.floor(Math.random() * 100) + 1;
+    await respond({
+        text: `Your random number is: ${number}`
     });
 });
 (async () => {
