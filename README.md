@@ -20,6 +20,7 @@ Commands
 /really-cool-bot-quote	Sends a random motivational quote
 
 
+
 Author
 
 Made by Shaurya.
