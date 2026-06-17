@@ -15,10 +15,7 @@ app.command("/really-cool-bot-ping", async ({ command, ack, respond }) => {
     await respond({ text: `Pong!\nLatency: ${latency}ms` });
 });
 
-(async () => {
-    await app.start();
-    console.log("bot is running!");
-})();
+
 app.command("/really-cool-bot-catfact", async ({ ack, respond }) => {
     await ack();
 
@@ -44,3 +41,25 @@ app.command("/really-cool-bot-joke", async ({ ack, respond }) => {
         await respond({ text: "Failed to fetch a joke." });
     }
 });
+app.command("/help", async ({ ack, respond }) => {
+    await ack();
+    await respond({
+        text: `Available commands:
+        /really-cool-bot-ping - Check if the bot is online
+        /really-cool-bot-catfact - Get a random cat fact
+        /really-cool-bot-joke - Get a random joke
+        /coinflip - Flip a coin
+        `
+    });
+});
+app.command("/coinflip", async ({ ack, respond }) => {
+    await ack();
+    const result = Math.random() < 0.5? "Heads":"Tails";
+    await respond({
+        text: ` coin flip result: ${result}`
+    });
+});
+(async () => {
+    await app.start();
+    console.log("bot is running!");
+})();
