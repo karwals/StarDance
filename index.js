@@ -8,6 +8,22 @@ const app = new App({
     socketMode: true
 });
 
+app.command("/help", async ({ ack, respond }) => {
+    await ack();
+    await respond({
+        text: `Available commands:
+        /really-cool-bot-ping - Check if the bot is online
+        /really-cool-bot-catfact - Get a random cat fact
+        /really-cool-bot-joke - Get a random joke
+        /really-cool-bot-quote - Get a random quote
+        /randomnumber - Get a random number
+        /tellMeAFact - Tell me a fact
+        /coinflip - Flip a coin
+        /DiceRole - Roll a dice
+        `
+    });
+});
+
 app.command("/really-cool-bot-ping", async ({ command, ack, respond }) => {
     const start = Date.now();
     await ack();
@@ -41,30 +57,19 @@ app.command("/really-cool-bot-joke", async ({ ack, respond }) => {
         await respond({ text: "Failed to fetch a joke." });
     }
 });
-app.command("/help", async ({ ack, respond }) => {
-    await ack();
-    await respond({
-        text: `Available commands:
-        /really-cool-bot-ping - Check if the bot is online
-        /really-cool-bot-catfact - Get a random cat fact
-        /really-cool-bot-joke - Get a random joke
-        /coinflip - Flip a coin
-        /DiceRole - Role a dice
-        `
-    });
-});
+
 app.command("/coinflip", async ({ ack, respond }) => {
     await ack();
     const result = Math.random() < 0.5? "Heads":"Tails";
     await respond({
-        text: ` coin flip result: ${result}`
+        text: ` coin flip result is: ${result}`
     });
 });
 app.command("/DiceRole", async ({ ack, respond }) => {
     await ack();
     const result = Math.ceil(Math.random()*6);
     await respond({
-        text: `Dice role result: ${result}`
+        text: `Dice roll result is: ${result}`
     });
 });
 app.command("/really-cool-bot-quote", async ({ ack, respond }) => {
@@ -88,10 +93,18 @@ app.command("/randomnumber", async ({ ack, respond }) => {
     await ack();
     const number = Math.floor(Math.random() * 100) + 1;
     await respond({
-        text: `Your random number is: ${number}`
+        text: `Your random number is the one and only: ${number}`
+    });
+});
+app.command("/tellMeAFact", async ({ ack, respond }) => {
+    await ack();
+
+    const fact = "Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 year old and still perfectly edible!"
+    await respond({
+        text: fact
     });
 });
 (async () => {
     await app.start();
-    console.log("bot is running!");
+    console.log("bot is now running!");
 })();
