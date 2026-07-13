@@ -5,19 +5,15 @@ The bot runs in Socket Mode and has commands for jokes, cat facts, dice rolls, c
 
 Commands
 
-/really-cool-bot-ping	Checks if the bot is online and shows latency
-
-/really-cool-bot-catfact	Sends a random cat fact
-
-/really-cool-bot-joke	Sends a random joke
-
-/help	Shows the list of available commands
-
-/coinflip	Flips a coin and returns Heads or Tails
-
-/DiceRole	Rolls a dice and returns a number from 1 to 6
-
-/really-cool-bot-quote	Sends a random motivational quote
+/help
+/really-cool-bot-ping
+/really-cool-bot-catfact
+/really-cool-bot-joke
+/coinflip
+/DiceRole
+/really-cool-bot-quote
+/randomnumber
+/tellMeAFact
 
 
 

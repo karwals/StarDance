@@ -12,14 +12,15 @@ app.command("/help", async ({ ack, respond }) => {
     await ack();
     await respond({
         text: `Available commands:
-        /really-cool-bot-ping - Check if the bot is online
-        /really-cool-bot-catfact - Get a random cat fact
-        /really-cool-bot-joke - Get a random joke
-        /really-cool-bot-quote - Get a random quote
-        /randomnumber - Get a random number
-        /tellMeAFact - Tell me a fact
-        /coinflip - Flip a coin
-        /DiceRole - Roll a dice
+        /help
+        /really-cool-bot-ping
+        /really-cool-bot-catfact
+        /really-cool-bot-joke
+        /coinflip
+        /DiceRole
+        /really-cool-bot-quote
+        /randomnumber
+        /tellMeAFact
         `
     });
 });
@@ -80,7 +81,8 @@ app.command("/really-cool-bot-quote", async ({ ack, respond }) => {
         "Do not stop until you are proud.",
         "Mistakes are proof that you are trying.",
         "Focus on one step at a time.",
-        "The best way to learn is to keep building."
+        "The best way to learn is to keep building.",
+        "success is not final, failure is not fatal: It is the courage to continue that counts.",
     ];
 
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
