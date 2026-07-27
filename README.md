@@ -5,7 +5,6 @@ The bot runs in Socket Mode and has commands for jokes, cat facts, dice rolls, c
 
 Commands
 
-/stardance-help
 /really-cool-bot-ping
 /really-cool-bot-catfact
 /really-cool-bot-joke
